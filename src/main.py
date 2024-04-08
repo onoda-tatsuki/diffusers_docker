@@ -10,7 +10,7 @@ start_time = time.time()
 pipe = StableDiffusionPipeline.from_pretrained(
     "admruul/anything-v3.0",
     torch_dtyoe=torch.float16,
-    use_auth_token="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"
+    use_auth_token=""
     # モデルのversion指定のオプション存在しないとエラーになる
     # variant="fp16",
     # use_safetensors=True
