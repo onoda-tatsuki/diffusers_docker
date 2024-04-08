@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  app:
+    container_name: diffusers_sample
+    build:
+      context: .
+      dockerfile: ./docker/dockerfile
+    volumes:
+      - .:/src
+      - .cache/huggingface:/root/.cache/huggingface
+    command: sleep infinity

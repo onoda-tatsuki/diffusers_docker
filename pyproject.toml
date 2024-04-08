@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "diffusers-docker"
+version = "0.1.0"
+description = ""
+authors = ["tatsuki.onoda <tatsuki.onoda@arsaga.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.6"
+transformers = "^4.39.3"
+scipy = "^1.13.0"
+diffusers = "^0.27.2"
+accelerate = "^0.28.0"
+pillow = "^10.3.0"
+torch = "2.0.0"
+torchvision = "0.15.1"
+torchaudio = "2.0.1"
+
+
+[[tool.poetry.source]]
+name = "torch_cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

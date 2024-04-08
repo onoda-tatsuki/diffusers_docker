@@ -1,0 +1,24 @@
+# stable diffusion web uiのバージョンと合わせて見る
+FROM python:3.10.6
+
+# poetryのバージョン指定 (最新)
+ARG POETRY_VERSION=1.8.2
+
+# https://stackoverflow.com/questions/59812009/what-is-the-use-of-pythonunbuffered-in-docker-file/59812588
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV TZ=Asia/Tokyo
+
+WORKDIR /src
+ENV PYTHONPATH=/src
+
+# poetry
+RUN pip install --no-cache-dir poetry==${POETRY_VERSION}
+# poetryの定義ファイルをコピー
+COPY pyproject.toml poetry.lock ./
+
+# poetry初期設定
+RUN poetry config virtualenvs.in-project true
+
+# poetry ライブラリインストール
+RUN poetry install --no-root
